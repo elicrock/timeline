@@ -37,7 +37,7 @@ export default tseslint.config(
     },
   },
   {
-    files: ['**/*.{ts,tsx}'],
+    files: ['**/*.{ts,tsx,scss}'],
     rules: {
       ...prettierPlugin.configs.recommended.rules,
       ...eslintConfigPrettier.rules,
