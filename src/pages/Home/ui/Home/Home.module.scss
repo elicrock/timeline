@@ -1,0 +1,9 @@
+@use '@/shared/scss/common/variables' as *;
+
+.main {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  border-left: 1px solid rgba($color-primary, 0.1);
+  border-right: 1px solid rgba($color-primary, 0.1);
+}

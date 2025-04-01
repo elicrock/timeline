@@ -1,0 +1,10 @@
+.timeline__years {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 100px;
+  padding-right: 33px;
+}

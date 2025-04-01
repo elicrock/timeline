@@ -1,0 +1,6 @@
+@use '@/shared/scss/common/variables' as *;
+
+.page {
+  padding-left: calc((100vw - $width-1440)* 2 / 3);
+  padding-right: calc((100vw - $width-1440)* 1 / 3);
+}

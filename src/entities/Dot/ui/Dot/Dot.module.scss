@@ -1,0 +1,44 @@
+@use '@/shared/scss/common/variables' as *;
+
+.dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  padding: 0;
+  border-radius: 50%;
+  background: $color-primary;
+  font-size: 0;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  z-index: 10;
+  transition: all 0.6s ease;
+
+  &__number {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: $color-primary;
+    font-weight: $fw-400;
+    line-height: 30px;
+  }
+
+  &__title {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0;
+    left: 76px;
+    font-weight: $fw-700;
+    font-size: $fz-20;
+    line-height: 30px;
+    color: $color-primary;
+    color: $color-primary;
+  }
+}

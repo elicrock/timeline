@@ -1,0 +1,16 @@
+@use '@/shared/scss/common/variables' as *;
+
+.timeline__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 99;
+
+  &_circle {
+    width: 530px;
+    height: 530px;
+    border-radius: 50%;
+    border: 1px solid rgba($color-primary, 0.1);
+  }
+}
