@@ -1,0 +1,16 @@
+@use '@/shared/scss/common/variables' as *;
+
+.timeline__year {
+  font-weight: $fw-700;
+  font-size: $fz-200;
+  line-height: 160px;
+  letter-spacing: -0.02em;
+
+  &.iris {
+    color: $color-iris;
+  }
+
+  &.fuschia {
+    color: $color-fuschia;
+  }
+}

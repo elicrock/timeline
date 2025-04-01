@@ -2,10 +2,10 @@
 
 :root {
   background-color: $background;
-  font-family: 'PT Sans', sans-serif;
+  font-family: $font-family;
   font-size: $fz-20;
-  font-weight: 400;
-  color: $text-color-primary;
+  font-weight: $fw-400;
+  color: $color-primary;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
