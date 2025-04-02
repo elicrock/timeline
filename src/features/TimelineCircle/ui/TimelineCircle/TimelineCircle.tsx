@@ -1,4 +1,4 @@
-import { Dot } from '@/entities/Dot';
+import { DotItem } from '@/entities/Dot';
 
 import * as styles from './TimelineCircle.module.scss';
 
@@ -12,7 +12,7 @@ export const TimelineCircle = () => {
           const angle = (360 / 6) * index;
 
           return (
-            <Dot key={index} number={index + 1} title="asfasf" angle={angle} radius={RADIUS} />
+            <DotItem key={index} number={index + 1} title="asfasf" angle={angle} radius={RADIUS} />
           );
         })}
       </div>

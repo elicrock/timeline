@@ -4,7 +4,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react';
 
 import { dotAnimation } from '../../lib/dotAnimations';
 
-import * as styles from './Dot.module.scss';
+import * as styles from './DotItem.module.scss';
 
 interface DotProps {
   number: number;
@@ -15,7 +15,7 @@ interface DotProps {
   className?: string;
 }
 
-export const Dot = (props: DotProps) => {
+export const DotItem = (props: DotProps) => {
   const { number, title, angle, radius, className } = props;
 
   const [isHover, setIsHover] = useState(false);

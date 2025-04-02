@@ -1,1 +1,1 @@
-export { Year } from './ui/Year/Year';
+export { YearItem } from './ui/YearItem/YearItem';

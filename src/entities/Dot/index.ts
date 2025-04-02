@@ -1,1 +1,1 @@
-export { Dot } from './ui/Dot/Dot';
+export { DotItem } from './ui/DotItem/DotItem';
