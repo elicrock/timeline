@@ -1,6 +1,7 @@
 import { useEffect } from 'react';
 
 import { TimelineCircle } from '@/features/TimelineCircle';
+import { TimelineEventsSlider } from '@/features/TimelineEvents';
 import { TimelineYears } from '@/features/TimelineYears';
 import { useDataStore } from '@/shared/stores/dataStore';
 import { Data } from '@/shared/types/data';
@@ -29,8 +30,9 @@ export const Timeline = (props: TimelineProps) => {
       <div className={styles.timeline__wrapper}>
         <h1 className={styles.timeline__title}>{title}</h1>
         <TimelineYears sliderId={sliderId} />
-        <TimelineCircle />
+        <TimelineCircle sliderId={sliderId} />
       </div>
+      <TimelineEventsSlider sliderId={sliderId} />
     </div>
   );
 };

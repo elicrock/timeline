@@ -11,12 +11,12 @@ interface DotProps {
   title: string;
   angle: number;
   radius: number;
-  // isActive?: boolean;
+  isActive: boolean;
   className?: string;
 }
 
 export const DotItem = (props: DotProps) => {
-  const { number, title, angle, radius, className } = props;
+  const { number, title, angle, radius, isActive, className } = props;
 
   const [isHover, setIsHover] = useState(false);
 
@@ -25,19 +25,19 @@ export const DotItem = (props: DotProps) => {
 
   const ctxGsap = useRef<gsap.Context | null>(null);
 
-  const x = radius * Math.cos((angle * Math.PI) / 180);
-  const y = radius * Math.sin((angle * Math.PI) / 180);
+  const x = radius * Math.cos(angle);
+  const y = radius * Math.sin(angle);
 
   const onMouseEnter = () => {
-    setIsHover(true);
+    if (!isActive) setIsHover(true);
   };
 
   const onMouseLeave = () => {
-    setIsHover(false);
+    if (!isActive) setIsHover(false);
   };
 
   useEffect(() => {
-    dotAnimation({ ctxGsap, dotRef, isHover });
+    dotAnimation({ ctxGsap, dotRef, isNeedAnimate: isHover });
   }, [isHover]);
 
   useLayoutEffect(() => {

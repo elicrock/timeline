@@ -12,5 +12,8 @@ export interface Data {
 
 export interface DataSchema {
   sliders: { [key: string]: Data[] };
+  currentYearIndex: number;
+
   setDataStore: (id: string, data: Data[]) => void;
+  setCurrentYearIndex: (years: number) => void;
 }

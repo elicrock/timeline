@@ -31,7 +31,7 @@ export const TimelineYears = (props: TimelineYearsProps) => {
   }, [sliders, sliderId]);
 
   if (isLoading) {
-    return <div>Загрузка...</div>;
+    return null;
   }
 
   return (
