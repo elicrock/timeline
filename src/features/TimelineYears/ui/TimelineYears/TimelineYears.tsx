@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import { Year } from '@/entities/Year';
+import { YearItem } from '@/entities/Year';
 import { useDataStore } from '@/shared/stores/dataStore';
 
 import * as styles from './TimelineYears.module.scss';
@@ -37,7 +37,7 @@ export const TimelineYears = (props: TimelineYearsProps) => {
   return (
     <div className={styles.timeline__years}>
       {years.map((year, index) => (
-        <Year key={index} year={year} color={index === 1 ? 'fuschia' : undefined} />
+        <YearItem key={index} year={year} color={index === 1 ? 'fuschia' : undefined} />
       ))}
     </div>
   );
