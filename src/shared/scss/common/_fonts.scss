@@ -1,28 +1,31 @@
-$pt-sans-font-path: "@/shared/assets/fonts/PTSans";
-$bebas-neue-font-path: "@/shared/assets/fonts/BebasNeue";
+$pt-sans-font-path: '@/shared/assets/fonts/PTSans';
+$bebas-neue-font-path: '@/shared/assets/fonts/BebasNeue';
 
 @font-face {
-  src: url('#{$pt-sans-font-path}/PTSans-Regular.woff2') format('woff2'),
-       url('#{$pt-sans-font-path}/PTSans-Regular.woff') format('woff'),
-       url('#{$pt-sans-font-path}/PTSans-Regular.ttf') format('truetype');
+  src:
+    url('#{$pt-sans-font-path}/PTSans-Regular.woff2') format('woff2'),
+    url('#{$pt-sans-font-path}/PTSans-Regular.woff') format('woff'),
+    url('#{$pt-sans-font-path}/PTSans-Regular.ttf') format('truetype');
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: 400;
 }
 
 @font-face {
-  src: url('#{$pt-sans-font-path}/PTSans-Bold.woff2') format('woff2'),
-       url('#{$pt-sans-font-path}/PTSans-Bold.woff') format('woff'),
-       url('#{$pt-sans-font-path}/PTSans-Bold.ttf') format('truetype');
+  src:
+    url('#{$pt-sans-font-path}/PTSans-Bold.woff2') format('woff2'),
+    url('#{$pt-sans-font-path}/PTSans-Bold.woff') format('woff'),
+    url('#{$pt-sans-font-path}/PTSans-Bold.ttf') format('truetype');
   font-family: 'PT Sans';
   font-style: normal;
   font-weight: 700;
 }
 
 @font-face {
-  src: url('#{$bebas-neue-font-path}/BebasNeue-Regular.woff2') format('woff2'),
-       url('#{$bebas-neue-font-path}/BebasNeue-Regular.woff') format('woff'),
-       url('#{$bebas-neue-font-path}/BebasNeue-Regular.ttf') format('truetype');
+  src:
+    url('#{$bebas-neue-font-path}/BebasNeue-Regular.woff2') format('woff2'),
+    url('#{$bebas-neue-font-path}/BebasNeue-Regular.woff') format('woff'),
+    url('#{$bebas-neue-font-path}/BebasNeue-Regular.ttf') format('truetype');
   font-family: 'Bebas Neue';
   font-style: normal;
   font-weight: 400;
