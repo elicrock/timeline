@@ -1,0 +1,36 @@
+@use '@/shared/scss/common/variables' as *;
+
+.event {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  gap: 15px;
+
+  &__title {
+    font-family: $second-family;
+    font-size: $fz-25;
+    line-height: 120%;
+    font-weight: $fw-400;
+    text-transform: uppercase;
+    color: $color-blue;
+  }
+
+  &__description {
+    max-width: 320px;
+    font-size: $fz-20;
+    line-height: 150%;
+    font-weight: $fw-400;
+    color: $color-primary;
+  }
+
+  @media screen and (max-width: 768px) {
+    &__title {
+      font-size: $fz-16;
+    }
+
+    &__description {
+      font-size: $fz-14;
+      line-height: 145%;
+    }
+  }
+}
