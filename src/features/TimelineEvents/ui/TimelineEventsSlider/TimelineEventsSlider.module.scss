@@ -1,8 +1,14 @@
 .events__slider {
+  user-select: none;
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
 
   &_active {
     opacity: 1;
+  }
+
+  &_notActive {
+    opacity: 0;
+    transition: opacity 0s;
   }
 }
