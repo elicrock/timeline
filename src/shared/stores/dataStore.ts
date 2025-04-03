@@ -9,6 +9,8 @@ export const useDataStore = create<DataSchema>()(
     devtools((set) => ({
       sliders: {},
       currentYearIndex: 0,
+      isCompleteAnimationCircle: false,
+
       setDataStore: (id, data) =>
         set((state) => {
           state.sliders[id] = data;
@@ -16,6 +18,10 @@ export const useDataStore = create<DataSchema>()(
       setCurrentYearIndex: (index) =>
         set((state) => {
           state.currentYearIndex = index;
+        }),
+      setIsCompleteAnimationCircle: (value) =>
+        set((state) => {
+          state.isCompleteAnimationCircle = value;
         }),
     })),
   ),

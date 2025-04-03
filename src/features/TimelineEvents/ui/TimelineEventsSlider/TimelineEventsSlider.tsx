@@ -13,11 +13,17 @@ interface TimelineEventsSliderProps {
 
 export const TimelineEventsSlider = (props: TimelineEventsSliderProps) => {
   const { sliderId } = props;
-  console.log('sliderId: ', sliderId);
 
   return (
     <div>
-      <Swiper modules={[Navigation]} slidesPerView={3} spaceBetween={30} grabCursor navigation>
+      <Swiper
+        id={sliderId}
+        modules={[Navigation]}
+        slidesPerView={3}
+        spaceBetween={30}
+        grabCursor
+        navigation
+      >
         {[...Array(4)].map((_, index) => (
           <SwiperSlide key={index}>
             <EventItem />

@@ -25,6 +25,10 @@ export const Timeline = (props: TimelineProps) => {
     }
   }, [data]);
 
+  if (!data) {
+    return null;
+  }
+
   return (
     <div className={styles.timeline}>
       <div className={styles.timeline__wrapper}>
