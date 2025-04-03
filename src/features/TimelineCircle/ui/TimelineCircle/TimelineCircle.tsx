@@ -1,5 +1,5 @@
 import { gsap } from 'gsap';
-import { useLayoutEffect, useRef } from 'react';
+import { useLayoutEffect, useMemo, useRef } from 'react';
 
 import { DotItem } from '@/entities/Dot';
 import { useDataStore } from '@/shared/stores/dataStore';
@@ -16,13 +16,32 @@ interface TimelineCircleProps {
 export const TimelineCircle = (props: TimelineCircleProps) => {
   const { sliderId } = props;
 
-  const { sliders, currentYearIndex, setCurrentYearIndex, setIsCompleteAnimationCircle } =
+  const { sliders, currentYearIndexes, setCurrentYearIndex, setIsCompleteAnimationCircle } =
     useDataStore((state) => state);
 
   const circleRef = useRef<HTMLDivElement | null>(null);
   const ctxGsap = useRef<gsap.Context | null>(null);
 
   const sliderData = sliders[sliderId];
+  const currentYearIndex = currentYearIndexes[sliderId] ?? 0;
+
+  const points = useMemo(() => {
+    if (!sliderData) return [];
+    return sliderData.map((category, index) => {
+      const angle = (index / sliderData.length) * 2 * Math.PI - Math.PI / 3;
+      return {
+        category,
+        angle,
+        isActive: index === currentYearIndex,
+      };
+    });
+  }, [sliderData, currentYearIndex]);
+
+  useLayoutEffect(() => {
+    if (sliderData && currentYearIndexes[sliderId] === undefined) {
+      setCurrentYearIndex(sliderId, 0);
+    }
+  }, [sliderData, sliderId, currentYearIndexes, setCurrentYearIndex]);
 
   useLayoutEffect(() => {
     if (!sliderData || !circleRef.current) return;
@@ -36,9 +55,10 @@ export const TimelineCircle = (props: TimelineCircleProps) => {
       circleRef,
       totalDots,
       currentYearIndex,
-      onComplete: () => setIsCompleteAnimationCircle(true),
+      onStart: () => setIsCompleteAnimationCircle(sliderId, false),
+      onComplete: () => setIsCompleteAnimationCircle(sliderId, true),
     });
-  }, [currentYearIndex, sliderData]);
+  }, [currentYearIndex, sliderData, sliderId]);
 
   useLayoutEffect(() => {
     ctxGsap.current = gsap.context(() => {});
@@ -48,27 +68,22 @@ export const TimelineCircle = (props: TimelineCircleProps) => {
 
   if (!sliderData) return null;
 
-  const totalDots = sliderData.length;
-
   return (
     <div className={styles.timeline__circle}>
       <div ref={circleRef} className={styles.timeline__circle_circle}>
-        {sliderData.map((category, index) => {
-          const angle = (index / totalDots) * 2 * Math.PI - Math.PI / 3;
-
-          return (
-            <DotItem
-              key={`${sliderId}-${category.id}`}
-              number={index + 1}
-              title={category.category}
-              angle={angle}
-              radius={CIRTCLE_RADIUS}
-              totalDots={totalDots}
-              isActive={index === currentYearIndex}
-              onClick={() => setCurrentYearIndex(index)}
-            />
-          );
-        })}
+        {points.map((point, index) => (
+          <DotItem
+            key={`${sliderId}-${point.category.id}`}
+            number={index + 1}
+            title={point.category.category}
+            angle={point.angle}
+            radius={CIRTCLE_RADIUS}
+            totalDots={sliderData.length}
+            isActive={point.isActive}
+            sliderId={sliderId}
+            onClick={() => setCurrentYearIndex(sliderId, index)}
+          />
+        ))}
       </div>
     </div>
   );

@@ -15,25 +15,25 @@ interface DotProps {
   radius: number;
   totalDots: number;
   isActive: boolean;
+  sliderId: string;
   className?: string;
   onClick?: () => void;
 }
 
 export const DotItem = (props: DotProps) => {
-  const { number, title, angle, radius, totalDots, isActive, className, onClick } = props;
+  const { number, title, angle, radius, totalDots, isActive, sliderId, className, onClick } = props;
 
-  const { currentYearIndex } = useDataStore((state) => state);
+  const { currentYearIndexes, isCompleteAnimationCircles } = useDataStore((state) => state);
 
   const [isHover, setIsHover] = useState(false);
 
   const dotRef = useRef<HTMLButtonElement | null>(null);
-  const titleRef = useRef<HTMLSpanElement | null>(null);
 
   const ctxGsap = useRef<gsap.Context | null>(null);
 
   const x = radius * Math.cos(angle);
   const y = radius * Math.sin(angle);
-  const rotate = (360 / totalDots) * currentYearIndex;
+  const rotate = (360 / totalDots) * currentYearIndexes[sliderId];
 
   const onMouseEnter = () => {
     if (!isActive) setIsHover(true);
@@ -73,7 +73,12 @@ export const DotItem = (props: DotProps) => {
       }}
     >
       <span className={styles.dot__number}>{number}</span>
-      <span ref={titleRef} className={styles.dot__title}>
+      <span
+        className={cn(styles.dot__title, {
+          [styles.dot__title_active]: isActive && isCompleteAnimationCircles[sliderId],
+          [styles.dot__title_notActive]: !isActive && isCompleteAnimationCircles[sliderId],
+        })}
+      >
         {title}
       </span>
     </button>

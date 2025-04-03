@@ -1,0 +1,8 @@
+.events__slider {
+  opacity: 0;
+  transition: opacity 0.4s ease-in-out;
+
+  &_active {
+    opacity: 1;
+  }
+}

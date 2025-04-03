@@ -1,11 +1,14 @@
+import cn from 'classnames';
 import { Navigation } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
-import { EventItem } from '@/entities/Event';
 
 import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
+import { EventItem } from '@/entities/Event';
+import { useDataStore } from '@/shared/stores/dataStore';
+
+import * as styles from './TimelineEventsSlider.module.scss';
 
 interface TimelineEventsSliderProps {
   sliderId: string;
@@ -14,8 +17,14 @@ interface TimelineEventsSliderProps {
 export const TimelineEventsSlider = (props: TimelineEventsSliderProps) => {
   const { sliderId } = props;
 
+  const { isCompleteAnimationCircles } = useDataStore((state) => state);
+
   return (
-    <div>
+    <div
+      className={cn(styles.events__slider, {
+        [styles.events__slider_active]: isCompleteAnimationCircles[sliderId],
+      })}
+    >
       <Swiper
         id={sliderId}
         modules={[Navigation]}

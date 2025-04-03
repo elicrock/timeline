@@ -12,10 +12,10 @@ export interface Data {
 
 export interface DataSchema {
   sliders: { [key: string]: Data[] };
-  currentYearIndex: number;
-  isCompleteAnimationCircle: boolean;
+  currentYearIndexes: Record<string, number>;
+  isCompleteAnimationCircles: Record<string, boolean>;
 
   setDataStore: (id: string, data: Data[]) => void;
-  setCurrentYearIndex: (years: number) => void;
-  setIsCompleteAnimationCircle: (isComplete: boolean) => void;
+  setCurrentYearIndex: (id: string, index: number) => void;
+  setIsCompleteAnimationCircle: (id: string, value: boolean) => void;
 }
