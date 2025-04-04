@@ -1,7 +1,14 @@
+@use '@/shared/scss/common/variables' as *;
+
 .events__slider {
   user-select: none;
   opacity: 0;
   transition: opacity 0.4s ease-in-out;
+  padding: 0 10px;
+  margin-top: 56px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 
   &_active {
     opacity: 1;
@@ -10,5 +17,37 @@
   &_notActive {
     opacity: 0;
     transition: opacity 0s;
+  }
+
+  &__swiper {
+    margin: 0 10px;
+  }
+
+  &__button {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    background: $white;
+    box-shadow: 0 0 15px 0 rgba($color-blue, 0.1);
+    border: none;
+    opacity: 1;
+    visibility: visible;
+    transition:
+      opacity 0.3s,
+      visibility 0.3s;
+
+    &:disabled {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    &::after {
+      display: none;
+    }
+
+    & svg {
+      width: auto;
+      height: auto;
+    }
   }
 }
