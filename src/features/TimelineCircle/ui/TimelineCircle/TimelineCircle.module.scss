@@ -8,10 +8,19 @@
   user-select: none;
   z-index: 99;
 
+  @media screen and (max-width: 700px) {
+    display: none;
+  }
+
   &_circle {
     width: 530px;
     height: 530px;
     border-radius: 50%;
     border: 1px solid rgba($color-primary, 0.1);
+
+    @media screen and (max-width: 820px) {
+      width: 440px;
+      height: 440px;
+    }
   }
 }

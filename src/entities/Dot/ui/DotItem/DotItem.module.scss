@@ -49,5 +49,10 @@
       opacity: 0;
       transition: opacity 0s;
     }
+
+    @media screen and (max-width: 800px) {
+      font-size: $fz-14;
+      line-height: 20px;
+    }
   }
 }

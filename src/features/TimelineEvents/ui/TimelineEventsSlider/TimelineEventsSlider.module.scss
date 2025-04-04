@@ -10,6 +10,12 @@
   align-items: center;
   gap: 20px;
 
+  @media screen and (max-width: 700px) {
+    padding: 0;
+    margin-top: 0;
+    padding-top: 20px;
+  }
+
   &_active {
     opacity: 1;
   }
@@ -21,6 +27,10 @@
 
   &__swiper {
     margin: 0 10px;
+
+    @media screen and (max-width: 700px) {
+      margin: 0;
+    }
   }
 
   &__button {
@@ -48,6 +58,10 @@
     & svg {
       width: auto;
       height: auto;
+    }
+
+    @media screen and (max-width: 680px) {
+      display: none;
     }
   }
 }

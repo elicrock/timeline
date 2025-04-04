@@ -25,6 +25,7 @@ export const TimelineNavigation = (props: TimelineNavigationProps) => {
         <Button
           onClick={() => setCurrentYearIndex(sliderId, currentYearIndex - 1)}
           disabled={currentYearIndex === 0}
+          className={styles.navigation__button}
         >
           <ArrowSvg />
         </Button>
@@ -32,6 +33,7 @@ export const TimelineNavigation = (props: TimelineNavigationProps) => {
           isRight
           onClick={() => setCurrentYearIndex(sliderId, currentYearIndex + 1)}
           disabled={currentYearIndex === sliderData.length - 1}
+          className={styles.navigation__button}
         >
           <ArrowSvg />
         </Button>
