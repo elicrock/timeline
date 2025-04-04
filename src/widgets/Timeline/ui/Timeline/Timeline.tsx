@@ -36,7 +36,7 @@ export const Timeline = (props: TimelineProps) => {
         <h1 className={styles.timeline__title}>{title}</h1>
         <TimelineYears sliderId={sliderId} />
         <TimelineCircle sliderId={sliderId} />
-        <TimelineNavigation />
+        <TimelineNavigation sliderId={sliderId} />
       </div>
       <TimelineEventsSlider sliderId={sliderId} />
     </div>
