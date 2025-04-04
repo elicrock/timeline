@@ -5,14 +5,14 @@ import * as styles from './Button.module.scss';
 
 interface ButtonProps {
   children: ReactNode;
-  className?: string;
   isRight?: boolean;
   disabled?: boolean;
+  className?: string;
   onClick?: () => void;
 }
 
 export const Button = (props: ButtonProps) => {
-  const { children, className = '', isRight = false, disabled = false, onClick } = props;
+  const { children, isRight = false, disabled = false, className, onClick } = props;
 
   return (
     <button
