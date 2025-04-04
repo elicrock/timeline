@@ -17,6 +17,12 @@ module.exports = {
       },
       {
         test: /\.scss$/,
+        include: [path.resolve(__dirname, 'node_modules/swiper')],
+        use: ['style-loader', 'css-loader', 'sass-loader'],
+      },
+      {
+        test: /\.scss$/,
+        exclude: [path.resolve(__dirname, 'node_modules/swiper')],
         use: [
           'style-loader',
           {

@@ -12,27 +12,23 @@ interface TimelineYearsProps {
 export const TimelineYears = (props: TimelineYearsProps) => {
   const { sliderId } = props;
 
-  const { sliders } = useDataStore((state) => state);
+  const { sliders, currentYearIndexes } = useDataStore((state) => state);
 
-  const [isLoading, setIsLoading] = useState(true);
   const [years, setYears] = useState<number[]>([]);
 
   useEffect(() => {
     const slider = sliders[sliderId];
-    if (slider && slider.length > 0) {
-      const extractedYears = slider[0].events.map((event) => event.year);
+    const currentIndex = currentYearIndexes[sliderId] ?? 0;
 
+    if (slider && slider[currentIndex]) {
+      const extractedYears = slider[currentIndex].events.map((event) => event.year);
       const minYear = Math.min(...extractedYears);
       const maxYear = Math.max(...extractedYears);
       setYears([minYear, maxYear]);
-
-      setIsLoading(false);
     }
-  }, [sliders, sliderId]);
+  }, [sliders, sliderId, currentYearIndexes[sliderId]]);
 
-  if (isLoading) {
-    return <div>Загрузка...</div>;
-  }
+  if (years.length === 0) return null;
 
   return (
     <div className={styles.timeline__years}>

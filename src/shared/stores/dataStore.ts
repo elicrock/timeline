@@ -8,9 +8,20 @@ export const useDataStore = create<DataSchema>()(
   immer(
     devtools((set) => ({
       sliders: {},
+      currentYearIndexes: {},
+      isCompleteAnimationCircles: {},
+
       setDataStore: (id, data) =>
         set((state) => {
           state.sliders[id] = data;
+        }),
+      setCurrentYearIndex: (id, index) =>
+        set((state) => {
+          state.currentYearIndexes[id] = index;
+        }),
+      setIsCompleteAnimationCircle: (id, value) =>
+        set((state) => {
+          state.isCompleteAnimationCircles[id] = value;
         }),
     })),
   ),

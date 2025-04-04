@@ -1,0 +1,21 @@
+@use '@/shared/scss/common/variables' as *;
+
+.navigation {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
+  padding: 0 80px;
+
+  &__counter {
+    font-size: $fz-14;
+    font-weight: $fw-400;
+    color: $color-primary;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+}

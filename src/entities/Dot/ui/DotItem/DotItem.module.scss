@@ -39,6 +39,15 @@
     font-size: $fz-20;
     line-height: 30px;
     color: $color-primary;
-    color: $color-primary;
+    transition: opacity 0.4s ease-in-out;
+
+    &_active {
+      opacity: 1;
+    }
+
+    &_notActive {
+      opacity: 0;
+      transition: opacity 0s;
+    }
   }
 }
