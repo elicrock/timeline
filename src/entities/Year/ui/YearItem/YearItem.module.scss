@@ -3,7 +3,7 @@
 .timeline__year {
   font-weight: $fw-700;
   font-size: $fz-200;
-  line-height: 160px;
+  line-height: 80%;
   letter-spacing: -0.02em;
 
   &.iris {
@@ -12,5 +12,32 @@
 
   &.fuschia {
     color: $color-fuschia;
+  }
+
+  @media screen and (max-width: 1440px) {
+    font-size: $fz-180;
+  }
+
+  @media screen and (max-width: 1280px) {
+    font-size: $fz-160;
+  }
+
+  @media screen and (max-width: 1024px) {
+    font-size: $fz-140;
+  }
+
+  @media screen and (max-width: 880px) {
+    font-size: $fz-120;
+  }
+
+  @media screen and (max-width: 768px) {
+    font-size: $fz-100;
+  }
+
+  @media screen and (max-width: 625px) {
+    font-size: $fz-80;
+  }
+  @media screen and (max-width: 576px) {
+    font-size: $fz-56;
   }
 }

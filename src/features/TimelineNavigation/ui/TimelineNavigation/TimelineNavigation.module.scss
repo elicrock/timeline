@@ -7,6 +7,12 @@
   gap: 20px;
   padding: 0 80px;
 
+  @media screen and (max-width: 768px) {
+    display: none;
+    padding: 0;
+    gap: 10px;
+  }
+
   &__counter {
     font-size: $fz-14;
     font-weight: $fw-400;
@@ -17,5 +23,17 @@
     display: flex;
     align-items: center;
     gap: 20px;
+
+    @media screen and (max-width: 768px) {
+      gap: 10px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    &__button {
+      & svg {
+        scale: 0.6;
+      }
+    }
   }
 }

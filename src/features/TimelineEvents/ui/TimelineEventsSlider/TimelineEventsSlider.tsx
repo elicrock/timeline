@@ -13,6 +13,7 @@ import ArrowSvgSm from '@/shared/assets/svg/arrow-icon_sm.svg';
 import { useDataStore } from '@/shared/stores/dataStore';
 import { Button } from '@/shared/ui/Button';
 
+import { BREAKPOINTS } from '../../model/const/timelineEvents';
 import { SliderPositionTypes } from '../../model/types/timelineEvents';
 
 import * as styles from './TimelineEventsSlider.module.scss';
@@ -61,6 +62,7 @@ export const TimelineEventsSlider = (props: TimelineEventsSliderProps) => {
         id={sliderId}
         modules={[Navigation]}
         slidesPerView={3}
+        breakpoints={BREAKPOINTS}
         spaceBetween={30}
         grabCursor
         navigation={{

@@ -3,6 +3,7 @@ import { useEffect } from 'react';
 import { TimelineCircle } from '@/features/TimelineCircle';
 import { TimelineEventsSlider } from '@/features/TimelineEvents';
 import { TimelineNavigation } from '@/features/TimelineNavigation';
+import { TimelinePagination } from '@/features/TimelinePagination';
 import { TimelineYears } from '@/features/TimelineYears';
 import { useDataStore } from '@/shared/stores/dataStore';
 import { Data } from '@/shared/types/data';
@@ -39,6 +40,10 @@ export const Timeline = (props: TimelineProps) => {
         <TimelineNavigation sliderId={sliderId} />
       </div>
       <TimelineEventsSlider sliderId={sliderId} />
+      <div className={styles.timeline__navigation_mobile}>
+        <TimelineNavigation sliderId={sliderId} />
+        <TimelinePagination sliderId={sliderId} />
+      </div>
     </div>
   );
 };

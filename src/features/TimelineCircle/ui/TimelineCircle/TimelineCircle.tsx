@@ -2,10 +2,15 @@ import { gsap } from 'gsap';
 import { useLayoutEffect, useMemo, useRef } from 'react';
 
 import { DotItem } from '@/entities/Dot';
+import { useWindowWidth } from '@/shared/lib/hooks/useWindowWidth';
 import { useDataStore } from '@/shared/stores/dataStore';
 
 import { circleAnimation } from '../../lib/timelineCircleAnimations';
-import { CIRTCLE_RADIUS } from '../../model/const/timelineCircleConst';
+import {
+  CIRTCLE_RADIUS,
+  CIRTCLE_RADIUS_TABLET,
+  WIDTH_TABLET,
+} from '../../model/const/timelineCircleConst';
 
 import * as styles from './TimelineCircle.module.scss';
 
@@ -15,6 +20,8 @@ interface TimelineCircleProps {
 
 export const TimelineCircle = (props: TimelineCircleProps) => {
   const { sliderId } = props;
+
+  const windowWidth = useWindowWidth();
 
   const { sliders, currentYearIndexes, setCurrentYearIndex, setIsCompleteAnimationCircle } =
     useDataStore((state) => state);
@@ -77,7 +84,7 @@ export const TimelineCircle = (props: TimelineCircleProps) => {
             number={index + 1}
             title={point.category.category}
             angle={point.angle}
-            radius={CIRTCLE_RADIUS}
+            radius={windowWidth <= WIDTH_TABLET ? CIRTCLE_RADIUS_TABLET : CIRTCLE_RADIUS}
             totalDots={sliderData.length}
             isActive={point.isActive}
             sliderId={sliderId}
