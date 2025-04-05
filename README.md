@@ -31,3 +31,6 @@ npm install или npm i
 ```
 npm run dev
 ```
+
+## Ссылка на проект:
+* https://elicrock.github.io/timeline
